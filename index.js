@@ -202,7 +202,6 @@ module.exports = function TP(mod) {
 
 	mod.hook('S_LOAD_TOPO', 3, (event) => {
 		aZone = event.zone;
-		aLoc.loc = event.loc;
 	});
 	
 	function saveBook(){
