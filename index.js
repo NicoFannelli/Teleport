@@ -194,7 +194,7 @@ module.exports = function TP(mod) {
 	});
 
 	mod.hook('S_CREATURE_CHANGE_HP', 6, event => {
-		if (event.target.equals(gameId)) {
+		if (event.target == gameId) {
 			curHp = event.curHp;
 			maxHp = event.maxHp;
 		}
