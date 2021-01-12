@@ -188,7 +188,7 @@ module.exports = function TP(mod) {
 		aLoc = event;
 	});
 	
-	mod.hook('S_PLAYER_STAT_UPDATE', 13, event => {
+	mod.hook('S_PLAYER_STAT_UPDATE', 14, event => {
 		curHp = event.hp;
 		maxHp = event.maxHp;
 	});
@@ -233,107 +233,11 @@ module.exports = function TP(mod) {
 			w: wLoc
 		};
 		afterLoc = aLoc;
-
-		if (wLoc > -1365 && wLoc < 1365){
-			afterLoc.loc.x = +aLoc.loc.x + radius[6];
-			afterLoc.loc.y = +aLoc.loc.y + radius[0];
-		};
-		if (wLoc > 1365 && wLoc < 4095){
-			afterLoc.loc.x = +aLoc.loc.x + radius[5];
-			afterLoc.loc.y = +aLoc.loc.y + radius[1];
-		};
-		if (wLoc > 4095 && wLoc < 6825){
-			afterLoc.loc.x = +aLoc.loc.x + radius[4];
-			afterLoc.loc.y = +aLoc.loc.y + radius[2];
-		};
-		if (wLoc > 6825 && wLoc < 9555){
-			afterLoc.loc.x = +aLoc.loc.x + radius[3];
-			afterLoc.loc.y = +aLoc.loc.y + radius[3];
-		};
-		if (wLoc > 9555 && wLoc < 12285){
-			afterLoc.loc.x = +aLoc.loc.x + radius[2];
-			afterLoc.loc.y = +aLoc.loc.y + radius[4];
-		};
-		if (wLoc > 12285 && wLoc < 15015){
-			afterLoc.loc.x = +aLoc.loc.x + radius[1];
-			afterLoc.loc.y = +aLoc.loc.y + radius[5];
-		};
-		if (wLoc > 15015 && wLoc < 17745){
-			afterLoc.loc.x = +aLoc.loc.x + radius[0];
-			afterLoc.loc.y = +aLoc.loc.y + radius[6];
-		};
-		if (wLoc > 17745 && wLoc < 20475){
-			afterLoc.loc.x = +aLoc.loc.x - radius[1];
-			afterLoc.loc.y = +aLoc.loc.y + radius[5];
-		};
-		if (wLoc > 20475 && wLoc < 23205){
-			afterLoc.loc.x = +aLoc.loc.x - radius[2];
-			afterLoc.loc.y = +aLoc.loc.y + radius[4];
-		};
-		if (wLoc > 23205 && wLoc < 25935){
-			afterLoc.loc.x = +aLoc.loc.x - radius[3];
-			afterLoc.loc.y = +aLoc.loc.y + radius[3];
-		};
-		if (wLoc > 25935 && wLoc < 28665){
-			afterLoc.loc.x = +aLoc.loc.x - radius[4];
-			afterLoc.loc.y = +aLoc.loc.y + radius[2];
-		};
-		if (wLoc > 28665 && wLoc < 31395){
-			afterLoc.loc.x = +aLoc.loc.x - radius[5];
-			afterLoc.loc.y = +aLoc.loc.y + radius[1];
-		};
-		if (wLoc > 31395 && wLoc < 32767){
-			afterLoc.loc.x = +aLoc.loc.x - radius[6];
-			afterLoc.loc.y = +aLoc.loc.y + radius[0];
-		};
-		if (wLoc > -32767 && wLoc < -31402){
-			afterLoc.loc.x = +aLoc.loc.x - radius[6];
-			afterLoc.loc.y = +aLoc.loc.y + radius[0];
-		};
-		if (wLoc > -31402 && wLoc < -28672){
-			afterLoc.loc.x = +aLoc.loc.x - radius[5];
-			afterLoc.loc.y = +aLoc.loc.y - radius[1];
-		};
-		if (wLoc > -28672 && wLoc < -25942){
-			afterLoc.loc.x = +aLoc.loc.x - radius[4];
-			afterLoc.loc.y = +aLoc.loc.y - radius[2];
-		};
-		if (wLoc > -25942 && wLoc < -23212){
-			afterLoc.loc.x = +aLoc.loc.x - radius[3];
-			afterLoc.loc.y = +aLoc.loc.y - radius[3];
-		};
-		if (wLoc > -23212 && wLoc < -20482){
-			afterLoc.loc.x = +aLoc.loc.x - radius[2];
-			afterLoc.loc.y = +aLoc.loc.y - radius[4];
-		};
-		if (wLoc > -20482 && wLoc < -17752){
-			afterLoc.loc.x = +aLoc.loc.x - radius[1];
-			afterLoc.loc.y = +aLoc.loc.y - radius[5];
-		};
-		if (wLoc > -17752 && wLoc < -15022){
-			afterLoc.loc.x = +aLoc.loc.x - radius[0];
-			afterLoc.loc.y = +aLoc.loc.y - radius[6];
-		};
-		if (wLoc > -15022 && wLoc < -12292){
-			afterLoc.loc.x = +aLoc.loc.x + radius[1];
-			afterLoc.loc.y = +aLoc.loc.y - radius[5];
-		};
-		if (wLoc > -12292 && wLoc < -9562){
-			afterLoc.loc.x = +aLoc.loc.x + radius[2];
-			afterLoc.loc.y = +aLoc.loc.y - radius[4];
-		};
-		if (wLoc > -9562 && wLoc < -6832){
-			afterLoc.loc.x = +aLoc.loc.x + radius[3];
-			afterLoc.loc.y = +aLoc.loc.y - radius[3];
-		};
-		if (wLoc > -6832 && wLoc < -4102){
-			afterLoc.loc.x = +aLoc.loc.x + radius[4];
-			afterLoc.loc.y = +aLoc.loc.y - radius[2];
-		};
-		if (wLoc > -4102 && wLoc < -1365){
-			afterLoc.loc.x = +aLoc.loc.x + radius[5];
-			afterLoc.loc.y = +aLoc.loc.y - radius[1];
-		};
+		
+		afterLoc.loc.x = aLoc.loc.x + (Math.cos(wLoc)*200);
+		afterLoc.loc.y = aLoc.loc.y + (Math.sin(wLoc)*200);
+		afterLoc.loc.z = aLoc.loc.z + 5;
+		
 		Move(afterLoc.loc.x,afterLoc.loc.y,afterLoc.loc.z,wLoc);
 	}
 }
