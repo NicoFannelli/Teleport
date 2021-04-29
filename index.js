@@ -188,7 +188,7 @@ module.exports = function TP(mod) {
 		aLoc = event;
 	});
 	
-	mod.hook('S_PLAYER_STAT_UPDATE', 14, event => {
+	mod.hook('S_PLAYER_STAT_UPDATE', 15, event => {
 		curHp = event.hp;
 		maxHp = event.maxHp;
 	});
