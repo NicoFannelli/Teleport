@@ -3,13 +3,33 @@ const fs = require("fs");
 const Vec3 = require('tera-vec3');
 module.exports = function TP(mod) {
 	var gameId = null, isCastanic = false, isDrop = false, curHp = 0, maxHp = 0;
-	var logic = 0, oLoc = null, tLoc = 0, wLoc = 0, aLoc = [], afterLoc = [], aZone = 0, tZone = 0, sLoc = 0;
+	var logic = 0, oLoc = null, tLoc = 0, wLoc = 0, aLoc = [], afterLoc = [], zzone=[],coords=[], aZone = 0, tZone = 0, sLoc = 0, x=0, y=0, z=0;
 	var aBook = {}, radius = [ 0, 50, 90, 125, 150, 170, 180 ];
 	try {
 		aBook = require('./book.json'); }
 	catch(e) { 
 		aBook = {};
 	}
+
+	mod.command.add('tpmap', (arg) => {
+        if(arg.includes("ChatLinkAction")){
+            var array = arg.split("@");
+            zzone = array[1];
+            coords = array[2].split(",");
+            x = coords[0];
+            y = coords[1];
+            z = coords[2].split('"')[0];
+            console.log(aZone + " " + zzone);
+            if(aZone == zzone){
+                Move(x,y,z,0);
+            }else{
+                mod.command.message('You are not in the same zone as the linked location.')
+            }
+        }else{
+            mod.command.message('The argument is not a linked location.')
+        }
+    })
+
 
 	mod.command.add('tp', (arg1, arg2, arg3) => {
 		if(arg1 && arg1.length > 0) arg1 = arg1.toLowerCase();
