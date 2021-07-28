@@ -11,4 +11,4 @@ Command:</br>
 - tp coord : get your coord zone_id x y z</br>
 - tp blink : blink to front</br>
 - tp back : undo last blin</br>
-- tpmap <point of interest>
+- tpmap -point of interest-
